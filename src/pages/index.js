@@ -60,14 +60,16 @@ const NewsletterSignup = () => {
 };
 
 export default ({ data }) => {
-  const mediaMatch = window.matchMedia("(max-width: 500px)");
+  const mediaMatch = window
+    ? window.matchMedia("(max-width: 500px)")
+    : { matches: false, addListener: () => {}, removeListener: () => {} };
   const [matches, setMatches] = useState(mediaMatch.matches);
 
   useEffect(() => {
     const handler = (e) => setMatches(e.matches);
     mediaMatch.addListener(handler);
     return () => mediaMatch.removeListener(handler);
-  }, [matches, setMatches]);
+  }, [matches, setMatches, mediaMatch]);
 
   const { title, description, image } = data.site.siteMetadata;
   return (
