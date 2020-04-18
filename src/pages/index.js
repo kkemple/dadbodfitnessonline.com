@@ -60,8 +60,8 @@ const NewsletterSignup = () => {
 };
 
 export default ({ data }) => {
-  const mediaMatch = window
-    ? window.matchMedia("(max-width: 500px)")
+  const mediaMatch = global.window
+    ? global.window.matchMedia("(max-width: 500px)")
     : { matches: false, addListener: () => {}, removeListener: () => {} };
   const [matches, setMatches] = useState(mediaMatch.matches);
 
