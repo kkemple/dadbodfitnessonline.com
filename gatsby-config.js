@@ -3,7 +3,7 @@ module.exports = {
     title: "Dadbod Fitness Online",
     siteUrl: "https://dadbodfitnessonline.com",
     description: `This program is for anyone who is looking to get strong and/or stay fit. What sets us apart from toher "at home" programs is that we offer a daily fitness workout of the day (DADFIT) and a daily strenght workout of the day (DADPUMP). You've got the option to do both or pick one if you're crunched for time.`,
-    image: "/src/images/logo.png",
+    image: "/src/images/social.jpg",
   },
   plugins: [
     "gatsby-plugin-sharp",
