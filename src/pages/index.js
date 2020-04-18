@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
 import { Helmet } from "react-helmet";
 import Image from "gatsby-image";
@@ -60,6 +60,15 @@ const NewsletterSignup = () => {
 };
 
 export default ({ data }) => {
+  const mediaMatch = window.matchMedia("(max-width: 500px)");
+  const [matches, setMatches] = useState(mediaMatch.matches);
+
+  useEffect(() => {
+    const handler = (e) => setMatches(e.matches);
+    mediaMatch.addListener(handler);
+    return () => mediaMatch.removeListener(handler);
+  }, [matches, setMatches]);
+
   const { title, description, image } = data.site.siteMetadata;
   return (
     <>
@@ -93,7 +102,6 @@ export default ({ data }) => {
           <Image
             style={{
               width: 100,
-              marginLeft: 8,
             }}
             fluid={data.logo.childImageSharp.fluid}
             alt={title}
@@ -115,6 +123,8 @@ export default ({ data }) => {
               padding: 24,
               borderRadius: 10,
               boxShadow: "2px 2px rgba(0,0,0,0.3)",
+              marginLeft: matches ? 16 : "auto",
+              marginRight: matches ? 16 : "auto",
             }}
           >
             <NewsletterSignup />
