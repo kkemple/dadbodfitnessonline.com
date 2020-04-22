@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { graphql } from "gatsby";
-import { Helmet } from "react-helmet";
-import Image from "gatsby-image";
 import addToMailchimp from "gatsby-plugin-mailchimp";
+import { Heading, Input, Button, Flex, Box } from "@chakra-ui/core";
+
+import Header from "../components/header";
+import Section from "../components/wood-section";
 
 const NewsletterSignup = () => {
   const [email, setEmail] = useState("");
@@ -26,133 +28,56 @@ const NewsletterSignup = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <h2 style={{ fontSize: 36, fontFamily: "Bebas Neue" }}>
-        Stay informed, sign up for the newsletter!
-      </h2>
-      <div
-        style={{
-          display: "flex",
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: 24,
-          background: "#efefef",
-          borderRadius: 5,
-        }}
+      <Heading>Stay informed, sign up for the newsletter!</Heading>
+      <Flex
+        justify="space-between"
+        align="center"
+        p="24px"
+        backgroundColor="gray.100"
+        borderRadius="5px"
       >
-        <input
-          style={{
-            padding: "8px 16px",
-            outline: "none",
-            flex: "1",
-          }}
+        <Input
+          mr="16px"
+          flex="1"
+          outline="none"
+          border="none"
           placeholder="Email address"
           name="email"
           type="text"
           value={email}
           onChange={handleEmailChange}
         />
-        <button style={{ padding: 8 }} type="submit">
-          Subscribe
-        </button>
-      </div>
+        <Button variantColor="teal">Subscribe</Button>
+      </Flex>
     </form>
   );
 };
 
 export default ({ data }) => {
-  const mediaMatch = global.window
-    ? global.window.matchMedia("(max-width: 500px)")
-    : { matches: false, addListener: () => {}, removeListener: () => {} };
-  const [matches, setMatches] = useState(mediaMatch.matches);
-
-  useEffect(() => {
-    const handler = (e) => setMatches(e.matches);
-    mediaMatch.addListener(handler);
-    return () => mediaMatch.removeListener(handler);
-  }, [matches, setMatches, mediaMatch]);
-
-  const { title, description, image } = data.site.siteMetadata;
   return (
     <>
-      <Helmet title={title}>
-        <meta name="description" content={description} />
-        <meta name="og:image" content={image} />
-      </Helmet>
-      <Image
-        style={{
-          position: "fixed",
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          objectFit: "cover",
-          transform: "scale(1.1)",
-          zIndex: -1,
-        }}
-        fluid={data.bg.childImageSharp.fluid}
-      />
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "stretch",
-          minHeight: "100vh",
-          margin: -8,
-        }}
-      >
-        <header style={{ position: "relative" }}>
-          <Image
-            style={{
-              width: 100,
-            }}
-            fluid={data.logo.childImageSharp.fluid}
-            alt={title}
-          />
-        </header>
-        <main
-          style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            flex: 1,
-          }}
-        >
-          <div
-            style={{
-              marginTop: -75,
-              width: "480px",
-              background: "white",
-              padding: 24,
-              borderRadius: 10,
-              boxShadow: "2px 2px rgba(0,0,0,0.3)",
-              marginLeft: matches ? 16 : "auto",
-              marginRight: matches ? 16 : "auto",
-            }}
-          >
-            <NewsletterSignup />
-          </div>
-        </main>
-      </div>
+      <Header />
+      <main>
+        <Section>
+          <Flex align="center" justify="center" py="64px">
+            <Box
+              width="480px"
+              backgroundColor="white"
+              p="24px"
+              borderRadius="10px"
+              boxShadow="2px 2px rgba(0,0,0,0.3)"
+            >
+              <NewsletterSignup />
+            </Box>
+          </Flex>
+        </Section>
+      </main>
     </>
   );
 };
 
 export const query = graphql`
-  query {
-    site {
-      siteMetadata {
-        title
-        description
-        image
-      }
-    }
-    logo: file(relativePath: { eq: "logo.png" }) {
-      childImageSharp {
-        fluid(maxWidth: 100) {
-          ...GatsbyImageSharpFluid
-        }
-      }
-    }
+  query IndexPage {
     bg: file(relativePath: { eq: "wood-bg.jpg" }) {
       childImageSharp {
         fluid(maxWidth: 3000) {

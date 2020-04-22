@@ -1,3 +1,12 @@
 import "typeface-bebas-neue";
+import React from "react";
+import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 
-export const wrapRootElement = ({ element }) => element;
+import theme from "./theme";
+
+export const wrapRootElement = ({ element }) => (
+  <ThemeProvider theme={theme}>
+    <CSSReset />
+    {element}
+  </ThemeProvider>
+);
