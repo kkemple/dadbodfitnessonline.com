@@ -94,6 +94,8 @@ export default ({ data }) => {
             justify="center"
             h="400px"
             p={["24px", "36px", "48px"]}
+            maxW="980px"
+            mx="auto"
           >
             <Heading
               as="h2"
@@ -118,6 +120,8 @@ export default ({ data }) => {
               "space-around",
             ]}
             px="24px"
+            maxW="980px"
+            mx="auto"
           >
             <Box flex="1" mb="24px">
               <CoachImg
@@ -201,17 +205,17 @@ export default ({ data }) => {
             </Box>
           </Flex>
         </WoodSection>
-        <Box as="section" py="48px" px="24px">
+        <Box as="section" py="48px" px="24px" maxW="980px" mx="auto">
           <Heading mb="48px" letterSpacing="0.15rem" as="h3" textAlign="center">
             Our Formula
           </Heading>
           <Flex
-            px="24px"
             direction={["column", "column", "row", "row"]}
             justify="space-around"
             align="center"
           >
             <Text
+              flex="1"
               w="300px"
               fontWeight="bold"
               mt={["0", "0", "-25px"]}
@@ -222,10 +226,12 @@ export default ({ data }) => {
               the best quality programming that’s available to you.
             </Text>
             <Text
+              flex="1.3"
               w="300px"
               fontSize="18px"
               fontStyle="italic"
               mb={["24px", "24px", "0"]}
+              mx={["0", "0", "16px"]}
             >
               The @dadbodfitnessonline coaching staff has the experience and
               accolades that are almost impossible to find anywhere else.
@@ -234,6 +240,7 @@ export default ({ data }) => {
               body building work.
             </Text>
             <Text
+              flex="1"
               w="300px"
               fontWeight="bold"
               fontSize="20px"
@@ -246,39 +253,41 @@ export default ({ data }) => {
           </Flex>
         </Box>
         <WoodSection>
-          <Heading
-            mb="48px"
-            letterSpacing="0.15rem"
-            as="h3"
-            textAlign="center"
-            color="white"
-            pt="48px"
-          >
-            Follow Us on Instagram
-          </Heading>
-          <Grid
-            templateColumns={[
-              "repeat(1, 1fr)",
-              "repeat(2, 1fr)",
-              "repeat(3, 1fr)",
-              "repeat(3, 1fr)",
-            ]}
-            gap={10}
-            px="64px"
-            pb="48px"
-          >
-            {data.insta.edges.map(({ node }) => (
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={`https://instagram.com/p/${node.id}`}
-              >
-                <Box key={node.id} rounded="lg" overflow="hidden">
-                  <Image fluid={node.localFile.childImageSharp.fluid} />
-                </Box>
-              </a>
-            ))}
-          </Grid>
+          <Box maxW="980px" mx="auto">
+            <Heading
+              mb="48px"
+              letterSpacing="0.15rem"
+              as="h3"
+              textAlign="center"
+              color="white"
+              pt="48px"
+            >
+              Follow Us on Instagram
+            </Heading>
+            <Grid
+              templateColumns={[
+                "repeat(1, 1fr)",
+                "repeat(2, 1fr)",
+                "repeat(3, 1fr)",
+                "repeat(3, 1fr)",
+              ]}
+              gap={10}
+              px="64px"
+              pb="48px"
+            >
+              {data.insta.edges.map(({ node }) => (
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={`https://instagram.com/p/${node.id}`}
+                >
+                  <Box key={node.id} rounded="lg" overflow="hidden">
+                    <Image fluid={node.localFile.childImageSharp.fluid} />
+                  </Box>
+                </a>
+              ))}
+            </Grid>
+          </Box>
         </WoodSection>
         <Box as="section" py="48px" px="24px">
           <Heading mb="48px" letterSpacing="0.15rem" as="h3" textAlign="center">
