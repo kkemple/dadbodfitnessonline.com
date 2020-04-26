@@ -183,7 +183,13 @@ export default ({ data }) => {
           </Flex>
         </Box>
         <WoodSection>
-          <Flex h="400px" align="center" justify="center" py="64px" px="8px">
+          <Flex
+            h="400px"
+            align="center"
+            justify="center"
+            py="64px"
+            px={["16px", "24px", "32px", "40px"]}
+          >
             <Box
               width="480px"
               backgroundColor="white"
@@ -199,13 +205,28 @@ export default ({ data }) => {
           <Heading mb="48px" letterSpacing="0.15rem" as="h3" textAlign="center">
             Our Formula
           </Heading>
-          <Flex px="24px" justify="space-around" align="center">
-            <Text w="300px" fontWeight="bold" mt="-25px">
+          <Flex
+            px="24px"
+            direction={["column", "column", "row", "row"]}
+            justify="space-around"
+            align="center"
+          >
+            <Text
+              w="300px"
+              fontWeight="bold"
+              mt={["0", "0", "-25px"]}
+              mb={["24px", "24px", "0"]}
+            >
               More people now than ever are resorting to building their own
               home/garage gym. If you are one of those people make sure you have
               the best quality programming that’s available to you.
             </Text>
-            <Text w="300px" fontSize="18px" fontStyle="italic">
+            <Text
+              w="300px"
+              fontSize="18px"
+              fontStyle="italic"
+              mb={["24px", "24px", "0"]}
+            >
               The @dadbodfitnessonline coaching staff has the experience and
               accolades that are almost impossible to find anywhere else.
               @bsmit13 @adamklink and @danedoes have come together to create a
@@ -217,7 +238,7 @@ export default ({ data }) => {
               fontWeight="bold"
               fontSize="20px"
               textTransform="uppercase"
-              mt="-20px"
+              mt={["0", "0", "-20px"]}
             >
               A little bit of everything to keep the workouts varied, fun, and
               efficient.
@@ -254,9 +275,6 @@ export default ({ data }) => {
               >
                 <Box key={node.id} rounded="lg" overflow="hidden">
                   <Image fluid={node.localFile.childImageSharp.fluid} />
-                  {/* <Box p="8px" background="white">
-                  <Text>{node.caption}</Text>
-                </Box> */}
                 </Box>
               </a>
             ))}
@@ -334,7 +352,6 @@ export const query = graphql`
       edges {
         node {
           id
-          caption
           localFile {
             childImageSharp {
               fluid(maxWidth: 300) {
