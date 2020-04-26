@@ -94,7 +94,7 @@ export default ({ data }) => {
             justify="center"
             h="400px"
             p={["24px", "36px", "48px"]}
-            maxW="980px"
+            maxW="1280px"
             mx="auto"
           >
             <Heading
@@ -120,7 +120,7 @@ export default ({ data }) => {
               "space-around",
             ]}
             px="24px"
-            maxW="980px"
+            maxW="1280px"
             mx="auto"
           >
             <Box flex="1" mb="24px">
@@ -205,55 +205,41 @@ export default ({ data }) => {
             </Box>
           </Flex>
         </WoodSection>
-        <Box as="section" py="48px" px="24px" maxW="980px" mx="auto">
+        <Box as="section" pt="48px" pb="80px" px="24px" maxW="640px" mx="auto">
           <Heading mb="48px" letterSpacing="0.15rem" as="h3" textAlign="center">
             Our Formula
           </Heading>
-          <Flex
-            direction={["column", "column", "row", "row"]}
-            justify="space-around"
-            align="center"
-          >
+          <Text textAlign="center" fontWeight="bold" mb="24px">
+            More people now than ever are resorting to building their own
+            home/garage gym. If you are one of those people make sure you have
+            the best quality programming that’s available to you.
+          </Text>
+          <Box>
             <Text
-              flex="1"
-              w="300px"
-              fontWeight="bold"
-              mt={["0", "0", "-25px"]}
-              mb={["24px", "24px", "0"]}
-            >
-              More people now than ever are resorting to building their own
-              home/garage gym. If you are one of those people make sure you have
-              the best quality programming that’s available to you.
-            </Text>
-            <Text
-              flex="1.3"
-              w="300px"
+              textAlign="center"
               fontSize="18px"
               fontStyle="italic"
-              mb={["24px", "24px", "0"]}
-              mx={["0", "0", "16px"]}
+              mb="24px"
             >
-              The @dadbodfitnessonline coaching staff has the experience and
+              The Dadbod Fitness Online coaching staff has the experience and
               accolades that are almost impossible to find anywhere else.
               @bsmit13 @adamklink and @danedoes have come together to create a
               program that is a unique mixture of CrossFit, strength work, and
               body building work.
             </Text>
             <Text
-              flex="1"
-              w="300px"
+              textAlign="center"
               fontWeight="bold"
               fontSize="20px"
               textTransform="uppercase"
-              mt={["0", "0", "-20px"]}
             >
               A little bit of everything to keep the workouts varied, fun, and
               efficient.
             </Text>
-          </Flex>
+          </Box>
         </Box>
         <WoodSection>
-          <Box maxW="980px" mx="auto">
+          <Box maxW="1280px" mx="auto" py="48px">
             <Heading
               mb="48px"
               letterSpacing="0.15rem"
