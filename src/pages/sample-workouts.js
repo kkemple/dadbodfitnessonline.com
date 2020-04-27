@@ -49,6 +49,7 @@ export default ({ data }) => {
               maxW="1280px"
               justify="space-around"
               align="stretch"
+              mx="auto"
               direction={["column", "column", "row"]}
             >
               <Box
