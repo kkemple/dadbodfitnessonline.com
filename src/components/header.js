@@ -2,8 +2,10 @@ import React from "react";
 import { useStaticQuery, graphql, Link } from "gatsby";
 import { Helmet } from "react-helmet";
 import Image from "gatsby-image";
-import { Box, Flex, Stack, Button, Icon } from "@chakra-ui/core";
+import { Box, Flex, Stack, Button } from "@chakra-ui/core";
 import styled from "@emotion/styled";
+
+import { useAuth0 } from "../../utils/auth";
 
 const NavList = styled(Stack)`
   list-style: none;
@@ -41,6 +43,8 @@ export default ({ title }) => {
 
   const { title: defaultTitle, description, image } = data.site.siteMetadata;
 
+  const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
+
   return (
     <>
       <Helmet title={title || defaultTitle}>
@@ -64,14 +68,21 @@ export default ({ title }) => {
             alt={title}
           />
         </Link>
-        <Box as="nav" flex="1" mr="16px">
+        <Box as="nav" flex="1">
           <NavList
             isInline
-            spacing={2}
+            spacing={[1, 2]}
             as="ul"
             justify="flex-end"
             align="center"
           >
+            {!isAuthenticated && (
+              <NavListItem mt="4px">
+                <Link activeClassName="active" to="/sample-workouts">
+                  Samples
+                </Link>
+              </NavListItem>
+            )}
             <NavListItem mt="4px">
               <a
                 target="_blank"
@@ -79,23 +90,42 @@ export default ({ title }) => {
                 href="https://cfkrypton.myshopify.com/"
               >
                 Shop
-                <Icon name="external-link" style={{ display: "inline" }} />
               </a>
             </NavListItem>
+            {/* {!isAuthenticated && (
+              <NavListItem mt="4px">
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="https://btwb.com"
+                >
+                  Join
+                </a>
+              </NavListItem>
+            )} */}
+            {isAuthenticated && (
+              <NavListItem mt="4px">
+                <Link activeClassName="active" to="/movements">
+                  Movements
+                </Link>
+              </NavListItem>
+            )}
             <NavListItem mt="4px">
-              <Link activeClassName="active" to="/sample-workouts">
-                Samples
-              </Link>
-            </NavListItem>
-            <NavListItem mt="4px">
-              <Link activeClassName="active" to="/sign-up">
-                Sign Up
+              <Link activeClassName="active" to="/partnerships">
+                Members
               </Link>
             </NavListItem>
             <NavListItem>
-              <Button letterSpacing="0.15rem" variantColor="black" size="sm">
-                Login
-              </Button>
+              {isAuthenticated && (
+                <Button
+                  letterSpacing="0.15rem"
+                  variantColor="black"
+                  size="sm"
+                  onClick={isAuthenticated ? logout : loginWithRedirect}
+                >
+                  {isAuthenticated ? "Logout" : "Members"}
+                </Button>
+              )}
             </NavListItem>
           </NavList>
         </Box>

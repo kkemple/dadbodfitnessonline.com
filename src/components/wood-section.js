@@ -3,7 +3,7 @@ import { Box } from "@chakra-ui/core";
 import { useStaticQuery, graphql } from "gatsby";
 import Image from "gatsby-image";
 
-export default ({ children, as = "section" }) => {
+export default ({ children, as = "section", ...rest }) => {
   const data = useStaticQuery(graphql`
     query Section {
       bg: file(relativePath: { eq: "wood-bg.jpg" }) {
@@ -17,7 +17,7 @@ export default ({ children, as = "section" }) => {
   `);
 
   return (
-    <Box position="relative">
+    <Box position="relative" {...rest}>
       <Image
         style={{
           position: "absolute",

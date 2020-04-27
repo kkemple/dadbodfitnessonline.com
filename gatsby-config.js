@@ -30,5 +30,12 @@ module.exports = {
         username: "dadbodfitnessonline",
       },
     },
+    {
+      resolve: "gatsby-source-youtube-v2",
+      options: {
+        channelId: ["UCiy0fiXZNhIjj9tjbPlPsMQ"],
+        apiKey: process.env.YOUTUBE_API_KEY,
+      },
+    },
   ],
 };

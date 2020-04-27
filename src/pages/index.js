@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { graphql } from "gatsby";
-import addToMailchimp from "gatsby-plugin-mailchimp";
-import { Grid, Heading, Text, Input, Button, Flex, Box } from "@chakra-ui/core";
+import { Grid, Heading, Text, Flex, Box } from "@chakra-ui/core";
 import Image from "gatsby-image";
 import styled from "@emotion/styled";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
 import WoodSection from "../components/wood-section";
+import NewsletterSignup from "../components/newsletter";
 
 export const CoachDescription = styled.span`
   display: block;
@@ -27,61 +27,6 @@ export const CoachImg = styled(Image)`
   margin: 0 auto;
   object-fit: cover;
 `;
-
-const NewsletterSignup = () => {
-  const [email, setEmail] = useState("");
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    try {
-      const { result } = await addToMailchimp(email);
-      alert("Thanks for signing up!");
-      setEmail("");
-      console.log(result);
-    } catch (error) {
-      console.error(error);
-    }
-  };
-
-  const handleEmailChange = (event) => {
-    setEmail(event.currentTarget.value);
-  };
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <Heading letterSpacing="0.1rem">
-        Stay informed, sign up for the newsletter!
-      </Heading>
-      <Flex
-        justify="space-between"
-        align="center"
-        p="8px"
-        backgroundColor="gray.100"
-        borderRadius="5px"
-      >
-        <Input
-          mr="16px"
-          flex="1"
-          outline="none"
-          border="none"
-          placeholder="Email address"
-          name="email"
-          type="text"
-          value={email}
-          onChange={handleEmailChange}
-        />
-        <Button
-          fontFamily="Bebas Neue"
-          letterSpacing="0.15rem"
-          variantColor="black"
-        >
-          Subscribe
-        </Button>
-      </Flex>
-    </form>
-  );
-};
 
 export default ({ data }) => {
   return (
@@ -198,8 +143,9 @@ export default ({ data }) => {
               width="480px"
               backgroundColor="white"
               p="16px"
-              borderRadius="10px"
-              boxShadow="2px 2px rgba(0,0,0,0.3)"
+              borderWidth="1px"
+              borderColor="#000000"
+              boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
             >
               <NewsletterSignup />
             </Box>
@@ -209,34 +155,48 @@ export default ({ data }) => {
           <Heading mb="48px" letterSpacing="0.15rem" as="h3" textAlign="center">
             Our Formula
           </Heading>
-          <Text textAlign="center" fontWeight="bold" mb="24px">
+          <Text
+            textAlign="center"
+            p="16px"
+            fontWeight="bold"
+            mb="24px"
+            borderWidth="1px"
+            borderColor="#000000"
+            boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
+          >
             More people now than ever are resorting to building their own
             home/garage gym. If you are one of those people make sure you have
             the best quality programming that’s available to you.
           </Text>
-          <Box>
-            <Text
-              textAlign="center"
-              fontSize="18px"
-              fontStyle="italic"
-              mb="24px"
-            >
-              The Dadbod Fitness Online coaching staff has the experience and
-              accolades that are almost impossible to find anywhere else.
-              @bsmit13 @adamklink and @danedoes have come together to create a
-              program that is a unique mixture of CrossFit, strength work, and
-              body building work.
-            </Text>
-            <Text
-              textAlign="center"
-              fontWeight="bold"
-              fontSize="20px"
-              textTransform="uppercase"
-            >
-              A little bit of everything to keep the workouts varied, fun, and
-              efficient.
-            </Text>
-          </Box>
+          <Text
+            textAlign="center"
+            p="16px"
+            fontSize="18px"
+            fontStyle="italic"
+            mb="24px"
+            borderWidth="1px"
+            borderColor="#000000"
+            boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
+          >
+            The Dadbod Fitness Online coaching staff has the experience and
+            accolades that are almost impossible to find anywhere else. @bsmit13
+            @adamklink and @danedoes have come together to create a program that
+            is a unique mixture of CrossFit, strength work, and body building
+            work.
+          </Text>
+          <Text
+            textAlign="center"
+            p="16px"
+            fontWeight="bold"
+            fontSize="20px"
+            textTransform="uppercase"
+            borderWidth="1px"
+            borderColor="#000000"
+            boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
+          >
+            A little bit of everything to keep the workouts varied, fun, and
+            efficient.
+          </Text>
         </Box>
         <WoodSection>
           <Box maxW="1280px" mx="auto" py="48px">
@@ -263,11 +223,12 @@ export default ({ data }) => {
             >
               {data.insta.edges.map(({ node }) => (
                 <a
+                  key={node.id}
                   target="_blank"
                   rel="noopener noreferrer"
                   href={`https://instagram.com/p/${node.id}`}
                 >
-                  <Box key={node.id} rounded="lg" overflow="hidden">
+                  <Box rounded="lg" overflow="hidden">
                     <Image fluid={node.localFile.childImageSharp.fluid} />
                   </Box>
                 </a>
@@ -343,7 +304,7 @@ export const query = graphql`
         }
       }
     }
-    insta: allInstaNode(limit: 3) {
+    insta: allInstaNode(limit: 3, sort: { fields: [timestamp], order: DESC }) {
       edges {
         node {
           id
