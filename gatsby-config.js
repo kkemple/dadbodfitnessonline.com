@@ -24,5 +24,18 @@ module.exports = {
           "https://dadbodfitnessonline.us19.list-manage.com/subscribe/post?u=c6746d6a7db452b91cd622a3e&amp;id=fc59c5445c",
       },
     },
+    {
+      resolve: "gatsby-source-instagram",
+      options: {
+        username: "dadbodfitnessonline",
+      },
+    },
+    {
+      resolve: "gatsby-source-youtube-v2",
+      options: {
+        channelId: ["UCiy0fiXZNhIjj9tjbPlPsMQ"],
+        apiKey: process.env.YOUTUBE_API_KEY,
+      },
+    },
   ],
 };
