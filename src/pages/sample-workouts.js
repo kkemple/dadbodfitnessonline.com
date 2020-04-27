@@ -59,7 +59,7 @@ export default ({ data }) => {
                 flex="1"
                 mb={["24px", "24px", "0"]}
               >
-                <Heading as="h5" size="md" fontWeight="bold">
+                <Heading as="h5" size="lg" fontWeight="bold">
                   Dad Fit
                 </Heading>
                 <Text>
@@ -117,7 +117,7 @@ export default ({ data }) => {
                 p="24px"
                 flex="1"
               >
-                <Heading as="h5" size="md" fontWeight="bold">
+                <Heading as="h5" size="lg" fontWeight="bold">
                   Dad Pump
                 </Heading>
                 <Text>

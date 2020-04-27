@@ -179,10 +179,10 @@ export default ({ data }) => {
             boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
           >
             The Dadbod Fitness Online coaching staff has the experience and
-            accolades that are almost impossible to find anywhere else. @bsmit13
-            @adamklink and @danedoes have come together to create a program that
-            is a unique mixture of CrossFit, strength work, and body building
-            work.
+            accolades that are almost impossible to find anywhere else. Ben
+            Smith, Adam Klink, and Dane Smith have come together to create a
+            program that is a unique mixture of CrossFit, strength work, and
+            body building work.
           </Text>
           <Text
             textAlign="center"
