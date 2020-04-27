@@ -19,6 +19,7 @@ export default ({ data }) => {
             p={["24px", "36px", "48px"]}
             maxW="1280px"
             mx="auto"
+            minH="400px"
           >
             <Heading
               as="h2"
