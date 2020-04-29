@@ -9,6 +9,14 @@ module.exports = {
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
     "gatsby-plugin-react-helmet",
+    "gatsby-source-google-docs",
+    "gatsby-plugin-emotion",
+    {
+      resolve: "gatsby-transformer-remark",
+      options: {
+        plugins: ["gatsby-remark-images"],
+      },
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

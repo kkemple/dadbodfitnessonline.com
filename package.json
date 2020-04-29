@@ -1,7 +1,8 @@
 {
   "scripts": {
     "start": "gatsby develop",
-    "build": "gatsby build"
+    "build": "gatsby build",
+    "token": "gatsby-source-google-docs-token"
   },
   "dependencies": {
     "@auth0/auth0-spa-js": "^1.7.0",
@@ -13,12 +14,16 @@
     "emotion-theming": "^10.0.27",
     "gatsby": "^2.20.17",
     "gatsby-image": "^2.3.3",
+    "gatsby-plugin-emotion": "^4.3.0",
     "gatsby-plugin-mailchimp": "^5.1.2",
     "gatsby-plugin-react-helmet": "^3.2.3",
     "gatsby-plugin-sharp": "^2.5.5",
+    "gatsby-remark-images": "^3.3.0",
     "gatsby-source-filesystem": "^2.2.2",
+    "gatsby-source-google-docs": "^2.0.0-beta.6",
     "gatsby-source-instagram": "^0.7.0",
     "gatsby-source-youtube-v2": "^1.0.1",
+    "gatsby-transformer-remark": "^2.8.0",
     "gatsby-transformer-sharp": "^2.4.5",
     "history": "^4.10.1",
     "prettier": "^2.0.4",

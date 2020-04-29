@@ -1,11 +1,79 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { Heading, Text, Flex, Box } from "@chakra-ui/core";
+import { SimpleGrid, Heading, Flex, Box } from "@chakra-ui/core";
+import { css } from "@emotion/core";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
 import NewsletterSignup from "../components/newsletter";
 import WoodSection from "../components/wood-section";
+
+const WorkoutsForDay = ({ day }) => (
+  <SimpleGrid
+    maxW="1280px"
+    columns={[1, 2, 3]}
+    gap={["24px", null, "48px"]}
+    mx="auto"
+    css={css`
+      font-size: 12px;
+
+      p {
+        margin-bottom: 16px;
+      }
+
+      ul {
+        margin-bottom: 16px;
+        list-style: square;
+      }
+
+      h1,
+      h2,
+      h3,
+      h4,
+      h5,
+      h6 {
+        font-family: Bebas Neue;
+        letter-spacing: 0.1rem;
+        margin-bottom: 8px;
+        font-size: 16px;
+      }
+
+      h4 {
+        font-size: 18px;
+      }
+
+      h5 {
+        font-size: 16px;
+      }
+
+      note {
+        font-size: 10px;
+        font-style: italic;
+        font-weight: bold;
+      }
+    `}
+  >
+    {day.edges.map(({ node }) => (
+      <Box
+        key={node.id}
+        borderWidth="1px"
+        borderColor="#000000"
+        boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
+        p="24px"
+        flex="1"
+      >
+        <Heading as="h4" size="lg" fontWeight="bold">
+          {node.childMarkdownRemark.frontmatter.name}
+        </Heading>
+        <Box
+          dangerouslySetInnerHTML={{
+            __html: node.childMarkdownRemark.html,
+          }}
+        />
+      </Box>
+    ))}
+  </SimpleGrid>
+);
 
 export default ({ data }) => {
   return (
@@ -41,120 +109,18 @@ export default ({ data }) => {
           >
             3 Days of Dadbod
           </Heading>
-          <Box pb="24px">
-            <Heading textAlign="center" size="xl" as="h4" mb="24px">
-              Day 1
-            </Heading>
-            <Flex
-              maxW="1280px"
-              justify="space-around"
-              align="stretch"
-              mx="auto"
-              direction={["column", "column", "row"]}
-            >
-              <Box
-                borderWidth="1px"
-                borderColor="#000000"
-                boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
-                p="24px"
-                flex="1"
-                mb={["24px", "24px", "0"]}
-              >
-                <Heading as="h5" size="lg" fontWeight="bold">
-                  Dad Fit
-                </Heading>
-                <Text>
-                  <b>5 Minute AMRAP:</b>
-                  <br />
-                  - 7 Double Dumbbell Hang Power Clean
-                  <br />
-                  - 7 Double Dumbbell Squats
-                  <br />
-                  - 7 Box Jumps (or step ups)
-                  <br />
-                  <br />
-                  1:00 Minute Rest
-                </Text>
-                <br />
-                <Text>
-                  <b>5 Minute AMRAP:</b>
-                  <br />
-                  - 5 Double Dumbbell Hang Power Clean
-                  <br />
-                  - 5 Double Dumbbell Squats
-                  <br />
-                  - 5 Box Jumps
-                  <br />
-                  <br />
-                  1:00 Minute Rest
-                </Text>
-                <br />
-                <Text>
-                  <b>5 Minute AMRAP:</b>
-                  <br />
-                  - 3 Double Dumbbell Hang Power Clean
-                  <br />
-                  - 3 Double Dumbbell Squats
-                  <br />
-                  - 3 Box Jumps
-                  <br />
-                  <br />
-                  1:00 Minute Rest
-                </Text>
-                <br />
-                <Text>
-                  <i>
-                    Complete as many rounds as possible (AMRAP) in each of the 5
-                    minute windows given. Pick a weight where you can keep
-                    unbroken sets with the dumbells or barbell.
-                  </i>
-                </Text>
-              </Box>
-              <Box flex=".1" />
-              <Box
-                borderWidth="1px"
-                borderColor="#000000"
-                boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
-                p="24px"
-                flex="1"
-              >
-                <Heading as="h5" size="lg" fontWeight="bold">
-                  Dad Pump
-                </Heading>
-                <Text>
-                  Dumbbell Strict Press (<b>4x 8-12 Reps</b>)
-                  <br />
-                  Dumbbell Bent Over Row (<b>4x 8-12 Reps</b>)
-                  <br />
-                </Text>
-                <br />
-                <Text>
-                  Push ups (<b>4x16-20 Reps</b>)
-                  <br />
-                  Strict Pull Ups (<b>4x6-10 Reps</b>)
-                  <br />
-                </Text>
-                <br />
-                <Text>
-                  Dumbbell Lateral Raise (<b>4x10-12 Reps</b>)
-                  <br />
-                  Dumbbell Front Raise (<b>4x10-12 Reps</b>)
-                </Text>
-                <br />
-                <Text>
-                  <i>
-                    Superset movements. Take the first two movements and do them
-                    back and forth for 4 sets each. Then, move onto the second
-                    two movements, then the third two movements.
-                    <br />
-                    <br />
-                    Try to go to failure or close to it on the last set of each
-                    exercise!
-                  </i>
-                </Text>
-              </Box>
-            </Flex>
-          </Box>
+          <Heading as="h4" textAlign="center" mb="16px">
+            Day 1
+          </Heading>
+          <WorkoutsForDay day={data.day1} />
+          <Heading mt="64px" as="h4" textAlign="center" mb="16px">
+            Day 2
+          </Heading>
+          <WorkoutsForDay day={data.day2} />
+          <Heading mt="64px" as="h4" textAlign="center" mb="16px">
+            Day 3
+          </Heading>
+          <WorkoutsForDay day={data.day3} />
         </Box>
         <WoodSection>
           <Flex
@@ -188,6 +154,51 @@ export const query = graphql`
       childImageSharp {
         fluid(maxWidth: 3000) {
           ...GatsbyImageSharpFluid
+        }
+      }
+    }
+    day1: allGoogleDocs(
+      sort: { fields: [document___name] }
+      filter: { document: { path: { regex: "/sample-workouts/day-1/" } } }
+    ) {
+      edges {
+        node {
+          childMarkdownRemark {
+            frontmatter {
+              name
+            }
+            html
+          }
+        }
+      }
+    }
+    day2: allGoogleDocs(
+      sort: { fields: [document___name] }
+      filter: { document: { path: { regex: "/sample-workouts/day-2/" } } }
+    ) {
+      edges {
+        node {
+          childMarkdownRemark {
+            frontmatter {
+              name
+            }
+            html
+          }
+        }
+      }
+    }
+    day3: allGoogleDocs(
+      sort: { fields: [document___name] }
+      filter: { document: { path: { regex: "/sample-workouts/day-3/" } } }
+    ) {
+      edges {
+        node {
+          childMarkdownRemark {
+            frontmatter {
+              name
+            }
+            html
+          }
         }
       }
     }
