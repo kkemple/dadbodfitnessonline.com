@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import { SimpleGrid, Heading, Flex, Box } from "@chakra-ui/core";
+import { SimpleGrid, Heading, Flex, Box, Button, Icon } from "@chakra-ui/core";
 import { css } from "@emotion/core";
 
 import Header from "../components/header";
@@ -122,6 +122,21 @@ export default ({ data }) => {
           </Heading>
           <WorkoutsForDay day={data.day3} />
         </Box>
+        <Flex my="48px" justify="center" align="center">
+          <Button
+            as="a"
+            href="https://www.youtube.com/watch?v=ZLfhuouegOs&list=PLlPxOiMnnlNqu_JJVHCxUkafQRnWMkiz1"
+            variant="outline"
+            variantColor="black"
+            borderRadius="none"
+            boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
+            p="24px"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Movement Demos <Icon ml="8px" name="arrow-forward" />
+          </Button>
+        </Flex>
         <WoodSection>
           <Flex
             h="400px"
