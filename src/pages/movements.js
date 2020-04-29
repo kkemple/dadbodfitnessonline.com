@@ -66,6 +66,7 @@ export default ({ data }) => {
         columns={[1, 2, 2, 3]}
         px="24px"
         pt="24px"
+        pb="48px"
         gap={10}
       >
         {videos
