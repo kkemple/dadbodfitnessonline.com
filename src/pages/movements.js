@@ -1,5 +1,5 @@
-import React from "react";
-import { Box, SimpleGrid, Flex, Heading } from "@chakra-ui/core";
+import React, { useState } from "react";
+import { Box, SimpleGrid, Flex, Heading, Input } from "@chakra-ui/core";
 import styled from "@emotion/styled";
 
 import Header from "../components/header";
@@ -23,6 +23,7 @@ const EmbedContainer = styled.div`
 `;
 
 export default ({ data }) => {
+  const [filter, setFilter] = useState("");
   const videos = data.allYoutubeVideo.edges;
 
   return (
@@ -47,6 +48,16 @@ export default ({ data }) => {
           </Heading>
         </Flex>
       </WoodSection>
+      <Box maxW="640px" mx="auto" p="24px" mt="24px">
+        <Input
+          type="text"
+          onChange={(e) => setFilter(e.target.value)}
+          value={filter}
+          placeholder="Search Videos..."
+          borderColor="black"
+          borderRadius="none"
+        />
+      </Box>
       <SimpleGrid
         display={["block", "block", "grid"]}
         maxW="1280px"
@@ -54,30 +65,34 @@ export default ({ data }) => {
         w="full"
         columns={[1, 2, 2, 3]}
         px="24px"
-        py="48px"
+        pt="24px"
         gap={10}
       >
-        {videos.map(({ node }) => (
-          <Box
-            p={["16px", null, "24px"]}
-            borderWidth="1px"
-            borderColor="#000000"
-            boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
-            mb={["24px", "24px", "0"]}
-          >
-            <EmbedContainer>
-              <Embed
-                src={`https://www.youtube.com/embed/${node.videoId}`}
-                frameborder="0"
-                allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
-                allowfullscreen
-              />
-            </EmbedContainer>
-            <Heading letterSpacing="0.15rem" size="sm" mt="8px">
-              {node.title}
-            </Heading>
-          </Box>
-        ))}
+        {videos
+          .filter(({ node }) =>
+            node.title.toLowerCase().includes(filter.toLowerCase())
+          )
+          .map(({ node }) => (
+            <Box
+              p={["16px", null, "24px"]}
+              borderWidth="1px"
+              borderColor="#000000"
+              boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
+              mb={["24px", "24px", "0"]}
+            >
+              <EmbedContainer>
+                <Embed
+                  src={`https://www.youtube.com/embed/${node.videoId}`}
+                  frameborder="0"
+                  allow="accelerometer; encrypted-media; gyroscope; picture-in-picture"
+                  allowfullscreen
+                />
+              </EmbedContainer>
+              <Heading letterSpacing="0.15rem" size="sm" mt="8px">
+                {node.title}
+              </Heading>
+            </Box>
+          ))}
       </SimpleGrid>
       <WoodSection>
         <Flex
