@@ -174,7 +174,7 @@ export const query = graphql`
     }
     day1: allGoogleDocs(
       sort: { fields: [document___name] }
-      filter: { document: { path: { regex: "/sample-workouts/day-1/" } } }
+      filter: { document: { path: { regex: "/samples/day-1/" } } }
     ) {
       edges {
         node {
@@ -189,7 +189,7 @@ export const query = graphql`
     }
     day2: allGoogleDocs(
       sort: { fields: [document___name] }
-      filter: { document: { path: { regex: "/sample-workouts/day-2/" } } }
+      filter: { document: { path: { regex: "/samples/day-2/" } } }
     ) {
       edges {
         node {
@@ -204,7 +204,7 @@ export const query = graphql`
     }
     day3: allGoogleDocs(
       sort: { fields: [document___name] }
-      filter: { document: { path: { regex: "/sample-workouts/day-3/" } } }
+      filter: { document: { path: { regex: "/samples/day-3/" } } }
     ) {
       edges {
         node {
