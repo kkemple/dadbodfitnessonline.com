@@ -15,7 +15,7 @@ const WorkoutsForDay = ({ day }) => (
     gap={["24px", null, "48px"]}
     mx="auto"
     css={css`
-      font-size: 12px;
+      font-size: 14px;
 
       p {
         margin-bottom: 16px;
@@ -35,15 +35,15 @@ const WorkoutsForDay = ({ day }) => (
         font-family: Bebas Neue;
         letter-spacing: 0.1rem;
         margin-bottom: 8px;
-        font-size: 16px;
-      }
-
-      h4 {
         font-size: 18px;
       }
 
+      h4 {
+        font-size: 20px;
+      }
+
       h5 {
-        font-size: 16px;
+        font-size: 18px;
       }
 
       note {
