@@ -48,7 +48,7 @@ export default ({ data }) => {
               letterSpacing="0.15rem"
               color="white"
             >
-              Get Strong, Stay Fit
+              Short On Time? We Got You Covered.
             </Heading>
           </Flex>
         </WoodSection>
