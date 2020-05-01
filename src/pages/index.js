@@ -271,7 +271,7 @@ export default ({ data }) => {
           </Flex>
         </Box>
       </main>
-      <Footer />
+      <Footer hideNewsletter />
     </>
   );
 };

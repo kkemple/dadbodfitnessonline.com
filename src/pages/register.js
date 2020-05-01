@@ -149,7 +149,7 @@ export default () => {
           </Flex>
         </WoodSection>
       </Box>
-      <Footer />
+      <Footer hideNewsletter />
     </Flex>
   );
 };

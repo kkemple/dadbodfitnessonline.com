@@ -137,26 +137,6 @@ export default ({ data }) => {
             Movement Demos <Icon ml="8px" name="arrow-forward" />
           </Button>
         </Flex>
-        <WoodSection>
-          <Flex
-            h="400px"
-            align="center"
-            justify="center"
-            py="64px"
-            px={["16px", "24px", "32px", "40px"]}
-          >
-            <Box
-              width="480px"
-              backgroundColor="white"
-              p="16px"
-              borderWidth="1px"
-              borderColor="#000000"
-              boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
-            >
-              <NewsletterSignup />
-            </Box>
-          </Flex>
-        </WoodSection>
       </main>
       <Footer />
     </>
