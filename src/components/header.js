@@ -104,11 +104,18 @@ export default ({ title }) => {
               </NavListItem>
             )} */}
             {isAuthenticated && (
-              <NavListItem mt="4px">
-                <Link activeClassName="active" to="/movements">
-                  Movements
-                </Link>
-              </NavListItem>
+              <>
+                <NavListItem mt="4px">
+                  <Link activeClassName="active" to="/movements">
+                    Movements
+                  </Link>
+                </NavListItem>
+                <NavListItem mt="4px">
+                  <Link activeClassName="active" to="/workouts">
+                    Workouts
+                  </Link>
+                </NavListItem>
+              </>
             )}
             <NavListItem mt="4px">
               <Link activeClassName="active" to="/partnerships">
