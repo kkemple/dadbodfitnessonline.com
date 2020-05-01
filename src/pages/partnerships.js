@@ -32,7 +32,7 @@ export default () => {
           justify="center"
           minH="400px"
           p={["24px", "36px", "48px"]}
-          maxW="1280px"
+          maxW="1080px"
           mx="auto"
         >
           <Heading

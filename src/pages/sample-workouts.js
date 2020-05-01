@@ -85,7 +85,7 @@ export default ({ data }) => {
             align="center"
             justify="center"
             p={["24px", "36px", "48px"]}
-            maxW="1280px"
+            maxW="1080px"
             mx="auto"
             minH="400px"
           >

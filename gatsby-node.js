@@ -1,3 +1,6 @@
+const ypi = require("youtube-playlist-info");
+const crypto = require("crypto");
+
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === "build-html") {
     /*
@@ -18,4 +21,48 @@ exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
       },
     });
   }
+};
+
+exports.sourceNodes = async ({ actions }) => {
+  const { createNode } = actions;
+
+  let quickTipsNode = {
+    id: "quickTipsPlaylist",
+    parent: "youtubePlaylists",
+    children: [],
+    internal: {
+      type: "youtubePlaylist",
+    },
+  };
+
+  const makeNode = (node) => {
+    node.internal.contentDigest = crypto
+      .createHash("md5")
+      .update(JSON.stringify(node))
+      .digest("hex");
+
+    createNode(node);
+  };
+
+  const playlist = "PLlPxOiMnnlNqu_JJVHCxUkafQRnWMkiz1";
+
+  const videos = await ypi(process.env.YOUTUBE_API_KEY, playlist);
+
+  quickTipsNode.children = videos.map((video) => {
+    const id = `youtubeVideo-${video.resourceId.videoId}`;
+    makeNode({
+      id,
+      title: video.title,
+      description: video.description,
+      thumbnails: video.thumbnails,
+      position: video.position,
+      videoId: video.resourceId.videoId,
+      internal: {
+        type: "youtubeVideo",
+      },
+      parent: "quickTipsPlaylist",
+      children: [],
+    });
+    return id;
+  });
 };

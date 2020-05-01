@@ -39,7 +39,7 @@ export default ({ data }) => {
             justify="center"
             h="400px"
             p={["24px", "36px", "48px"]}
-            maxW="1280px"
+            maxW="1080px"
             mx="auto"
           >
             <Heading
@@ -83,10 +83,13 @@ export default ({ data }) => {
                 Ben Smith
               </Heading>
               <Text textAlign="center" fontSize="12px">
-                Ben won the 2015 CrossFit Games and became the sixth man to earn
-                the title of "Fittest Man on Earth", has finished 1st place in
-                the Mid-Atlantic Region 5 times and has a record 11 appearances
-                at the CrossFit Games.
+                Ben is a husband to Noelle and a father to a beautiful baby
+                girl. He has qualified for the CrossFit Games 12 times so it is
+                fair to give him the title of the most consistent CrossFit
+                athlete in the world. He won the CrossFit Games in 2015 and is
+                the owner of thebensmithblueprint. He's excited to overlook this
+                program and help parents around the world become better versions
+                of themselves.
               </Text>
             </Box>
             <Box flex="1" mb="24px" mx={["0px", "0px", "64px", "80px"]}>
@@ -104,9 +107,12 @@ export default ({ data }) => {
                 Dane Smith
               </Heading>
               <Text textAlign="center" fontSize="12px">
-                Dane is a Three-Time Atlantic Regional Athlete and one of the
-                most fun Crossfitter in the World to watch compete. Dane’s all
-                out mentality makes him a ferocious competitor on the field.
+                Dane is a husband to Emily and a father of two beautiful twin
+                girls. He has competed is CrossFit competitions around the world
+                and has coached at CrossFit Krypton for 5 years. His love and
+                passion for fitness and being a Dad led him him to co-create the
+                idea of DADBODfitness and is excited to bring the finished
+                product to parents/busy working adults around the world.
               </Text>
             </Box>
             <Box flex="1" mb="24px">
@@ -124,9 +130,12 @@ export default ({ data }) => {
                 Adam Klink
               </Heading>
               <Text textAlign="center" fontSize="12px">
-                Adam enjoys the challenges of CrossFit, both physical and
-                mental. He loves the fact that Crossfit provides an opportunity
-                for each individual to improve the quality of their life.
+                Adam is a husband to Shea and father to Noah. He is the Head
+                Coach at CrossFit Krypton. As an athlete, Adam was a 6x Regional
+                Competitor. He enjoys the challenges of CrossFit, both physical
+                and mental. He loves the fact that Crossfit provides an
+                opportunity for each individual to improve the quality of their
+                life.
               </Text>
             </Box>
           </Flex>
