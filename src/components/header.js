@@ -119,7 +119,7 @@ export default ({ title }) => {
             )}
             <NavListItem mt="4px">
               <Link activeClassName="active" to="/partnerships">
-                Members
+                {isAuthenticated ? "Partnerships" : "Members"}
               </Link>
             </NavListItem>
             <NavListItem>
