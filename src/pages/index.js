@@ -48,7 +48,7 @@ export default ({ data }) => {
               letterSpacing="0.15rem"
               color="white"
             >
-              Ditch the Dadbod, Launching May 1st
+              Get Strong, Stay Fit
             </Heading>
           </Flex>
         </WoodSection>

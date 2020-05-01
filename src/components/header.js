@@ -92,17 +92,17 @@ export default ({ title }) => {
                 Shop
               </a>
             </NavListItem>
-            {/* {!isAuthenticated && (
+            {!isAuthenticated && (
               <NavListItem mt="4px">
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  href="https://btwb.com"
+                  href="https://www.bensmithblueprint.com/programs/"
                 >
                   Join
                 </a>
               </NavListItem>
-            )} */}
+            )}
             {isAuthenticated && (
               <>
                 <NavListItem mt="4px">
