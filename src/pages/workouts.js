@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, navigate } from "gatsby";
+import { navigate } from "gatsby";
 import {
   SimpleGrid,
   Flex,
@@ -10,9 +10,6 @@ import {
   TabPanels,
   Tab,
   TabPanel,
-  Button,
-  Icon,
-  Text,
 } from "@chakra-ui/core";
 import { css } from "@emotion/core";
 
@@ -20,7 +17,6 @@ import Header from "../components/header";
 import Footer from "../components/footer";
 import { useAuth0 } from "../../utils/auth";
 import WoodSection from "../components/wood-section";
-import NewsletterSignup from "../components/newsletter";
 
 const isBrowser = typeof window !== "undefined";
 
@@ -120,7 +116,6 @@ export default ({ data }) => {
             color="white"
           >
             No Time, No Problem. Here's the Workouts for the Week.
-            {/* New Workouts Coming May 4th! */}
           </Heading>
         </Flex>
       </WoodSection>
@@ -177,22 +172,6 @@ export default ({ data }) => {
           </TabPanels>
         </Tabs>
       </Box>
-      {/* <Flex mt="24px" p="24px" justify="center" align="center">
-        <Heading size="md" letterSpacing="0.15rem">
-          Don't want to wait? Try the Sample Workouts!
-        </Heading>
-      </Flex>
-      <Flex mb="48px" justify="center" align="center">
-        <Box
-          p="16px"
-          boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
-          border="1px solid black"
-        >
-          <Link to="/sample-workouts">
-            Sample Workouts <Icon ml="8px" name="arrow-forward" />
-          </Link>
-        </Box>
-      </Flex> */}
       <Footer />
     </>
   );
