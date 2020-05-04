@@ -119,12 +119,12 @@ export default ({ data }) => {
             letterSpacing="0.15rem"
             color="white"
           >
-            {/* No Time, No Problem. Here's the Workouts for the Week. */}
-            New Workouts Coming May 4th!
+            No Time, No Problem. Here's the Workouts for the Week.
+            {/* New Workouts Coming May 4th! */}
           </Heading>
         </Flex>
       </WoodSection>
-      {/*<Box as="section" py="48px" px="24px">
+      <Box as="section" py="48px" px="24px">
         <Heading
           mb="24px"
           letterSpacing="0.15rem"
@@ -176,8 +176,8 @@ export default ({ data }) => {
             </TabPanel>
           </TabPanels>
         </Tabs>
-  </Box>*/}
-      <Flex mt="24px" p="24px" justify="center" align="center">
+      </Box>
+      {/* <Flex mt="24px" p="24px" justify="center" align="center">
         <Heading size="md" letterSpacing="0.15rem">
           Don't want to wait? Try the Sample Workouts!
         </Heading>
@@ -192,7 +192,7 @@ export default ({ data }) => {
             Sample Workouts <Icon ml="8px" name="arrow-forward" />
           </Link>
         </Box>
-      </Flex>
+      </Flex> */}
       <Footer />
     </>
   );
@@ -209,7 +209,7 @@ export const query = graphql`
     }
     day1: allGoogleDocs(
       sort: { fields: [document___name] }
-      filter: { document: { path: { regex: "/workouts/day-1/" } } }
+      filter: { document: { path: { regex: "/^/day-1/" } } }
     ) {
       edges {
         node {
@@ -224,7 +224,7 @@ export const query = graphql`
     }
     day2: allGoogleDocs(
       sort: { fields: [document___name] }
-      filter: { document: { path: { regex: "/workouts/day-2/" } } }
+      filter: { document: { path: { regex: "/^/day-2/" } } }
     ) {
       edges {
         node {
@@ -239,7 +239,7 @@ export const query = graphql`
     }
     day3: allGoogleDocs(
       sort: { fields: [document___name] }
-      filter: { document: { path: { regex: "/workouts/day-3/" } } }
+      filter: { document: { path: { regex: "/^/day-3/" } } }
     ) {
       edges {
         node {
@@ -254,7 +254,7 @@ export const query = graphql`
     }
     day4: allGoogleDocs(
       sort: { fields: [document___name] }
-      filter: { document: { path: { regex: "/workouts/day-4/" } } }
+      filter: { document: { path: { regex: "/^/day-4/" } } }
     ) {
       edges {
         node {
@@ -269,7 +269,7 @@ export const query = graphql`
     }
     day5: allGoogleDocs(
       sort: { fields: [document___name] }
-      filter: { document: { path: { regex: "/workouts/day-5/" } } }
+      filter: { document: { path: { regex: "/^/day-5/" } } }
     ) {
       edges {
         node {
@@ -284,7 +284,7 @@ export const query = graphql`
     }
     day6: allGoogleDocs(
       sort: { fields: [document___name] }
-      filter: { document: { path: { regex: "/workouts/day-6/" } } }
+      filter: { document: { path: { regex: "/^/day-6/" } } }
     ) {
       edges {
         node {

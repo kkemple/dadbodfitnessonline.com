@@ -5,7 +5,6 @@ import { css } from "@emotion/core";
 
 import Header from "../components/header";
 import Footer from "../components/footer";
-import NewsletterSignup from "../components/newsletter";
 import WoodSection from "../components/wood-section";
 
 const WorkoutsForDay = ({ day }) => (
