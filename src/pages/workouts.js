@@ -178,6 +178,18 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
+  fragment DocFragment on GoogleDocsEdge {
+    node {
+      id
+      childMarkdownRemark {
+        frontmatter {
+          name
+        }
+        html
+      }
+    }
+  }
+
   query WorkoutsPage {
     bg: file(relativePath: { eq: "wood-bg.jpg" }) {
       childImageSharp {
@@ -191,14 +203,7 @@ export const query = graphql`
       filter: { document: { path: { regex: "/^/day-1/" } } }
     ) {
       edges {
-        node {
-          childMarkdownRemark {
-            frontmatter {
-              name
-            }
-            html
-          }
-        }
+        ...DocFragment
       }
     }
     day2: allGoogleDocs(
@@ -206,14 +211,7 @@ export const query = graphql`
       filter: { document: { path: { regex: "/^/day-2/" } } }
     ) {
       edges {
-        node {
-          childMarkdownRemark {
-            frontmatter {
-              name
-            }
-            html
-          }
-        }
+        ...DocFragment
       }
     }
     day3: allGoogleDocs(
@@ -221,14 +219,7 @@ export const query = graphql`
       filter: { document: { path: { regex: "/^/day-3/" } } }
     ) {
       edges {
-        node {
-          childMarkdownRemark {
-            frontmatter {
-              name
-            }
-            html
-          }
-        }
+        ...DocFragment
       }
     }
     day4: allGoogleDocs(
@@ -236,14 +227,7 @@ export const query = graphql`
       filter: { document: { path: { regex: "/^/day-4/" } } }
     ) {
       edges {
-        node {
-          childMarkdownRemark {
-            frontmatter {
-              name
-            }
-            html
-          }
-        }
+        ...DocFragment
       }
     }
     day5: allGoogleDocs(
@@ -251,14 +235,7 @@ export const query = graphql`
       filter: { document: { path: { regex: "/^/day-5/" } } }
     ) {
       edges {
-        node {
-          childMarkdownRemark {
-            frontmatter {
-              name
-            }
-            html
-          }
-        }
+        ...DocFragment
       }
     }
     day6: allGoogleDocs(
@@ -266,14 +243,7 @@ export const query = graphql`
       filter: { document: { path: { regex: "/^/day-6/" } } }
     ) {
       edges {
-        node {
-          childMarkdownRemark {
-            frontmatter {
-              name
-            }
-            html
-          }
-        }
+        ...DocFragment
       }
     }
   }

@@ -44,6 +44,7 @@ export default () => {
           letterSpacing="0.15rem"
           variantColor="black"
           rounded="none"
+          type="submit"
         >
           Subscribe
         </Button>
