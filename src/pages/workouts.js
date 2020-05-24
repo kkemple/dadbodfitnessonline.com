@@ -66,25 +66,27 @@ const WorkoutsForDay = ({ day }) => (
       }
     `}
   >
-    {day.edges.map(({ node }) => (
-      <Box
-        key={node.id}
-        borderWidth="1px"
-        borderColor="#000000"
-        boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
-        p="24px"
-        flex="1"
-      >
-        <Heading as="h4" size="lg" fontWeight="bold">
-          {node.childMarkdownRemark.frontmatter.name}
-        </Heading>
+    {day.edges.map(({ node }) =>
+      !!node.childMarkdownRemark.html.length ? (
         <Box
-          dangerouslySetInnerHTML={{
-            __html: node.childMarkdownRemark.html,
-          }}
-        />
-      </Box>
-    ))}
+          key={node.id}
+          borderWidth="1px"
+          borderColor="#000000"
+          boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
+          p="24px"
+          flex="1"
+        >
+          <Heading as="h4" size="lg" fontWeight="bold">
+            {node.childMarkdownRemark.frontmatter.name}
+          </Heading>
+          <Box
+            dangerouslySetInnerHTML={{
+              __html: node.childMarkdownRemark.html,
+            }}
+          />
+        </Box>
+      ) : null
+    )}
   </SimpleGrid>
 );
 
