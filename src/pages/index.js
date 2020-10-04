@@ -207,7 +207,7 @@ export default ({ data }) => {
             efficient.
           </Text>
         </Box>
-        {/* <WoodSection>
+        <WoodSection>
           <Box maxW="1280px" mx="auto" py="48px">
             <Heading
               mb="48px"
@@ -244,40 +244,38 @@ export default ({ data }) => {
               ))}
             </Grid>
           </Box>
-        </WoodSection> */}
-        <WoodSection>
-          <Box as="section" py="48px" px="24px">
-            <Heading
-              mb="48px"
-              letterSpacing="0.15rem"
-              as="h3"
-              textAlign="center"
-              color="white"
+        </WoodSection>
+        <Box as="section" py="48px" px="24px">
+          <Heading
+            mb="48px"
+            letterSpacing="0.15rem"
+            as="h3"
+            textAlign="center"
+            color="white"
+          >
+            Dadbod Fitness Online is part of the Ben Smith Blueprint
+          </Heading>
+          <Flex justify="center" align="center">
+            <a
+              href="https://www.bensmithblueprint.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                display: "inline-block",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
             >
-              Dadbod Fitness Online is part of the Ben Smith Blueprint
-            </Heading>
-            <Flex justify="center" align="center">
-              <a
-                href="https://www.bensmithblueprint.com/"
-                target="_blank"
-                rel="noopener noreferrer"
+              <CoachImg
                 style={{
                   display: "inline-block",
-                  marginLeft: "auto",
-                  marginRight: "auto",
                 }}
-              >
-                <CoachImg
-                  style={{
-                    display: "inline-block",
-                  }}
-                  alt="The Ben Smith Blueprint"
-                  fluid={data.bp.childImageSharp.fluid}
-                />
-              </a>
-            </Flex>
-          </Box>
-        </WoodSection>
+                alt="The Ben Smith Blueprint"
+                fluid={data.bp.childImageSharp.fluid}
+              />
+            </a>
+          </Flex>
+        </Box>
       </main>
       <Footer hideNewsletter />
     </>
@@ -321,19 +319,19 @@ export const query = graphql`
         }
       }
     }
-    # insta: allInstaNode(limit: 3, sort: { fields: [timestamp], order: DESC }) {
-    #   edges {
-    #     node {
-    #       id
-    #       localFile {
-    #         childImageSharp {
-    #           fluid(maxWidth: 300) {
-    #             ...GatsbyImageSharpFluid
-    #           }
-    #         }
-    #       }
-    #     }
-    #   }
-    # }
+    insta: allInstaNode(limit: 3, sort: { fields: [timestamp], order: DESC }) {
+      edges {
+        node {
+          id
+          localFile {
+            childImageSharp {
+              fluid(maxWidth: 300) {
+                ...GatsbyImageSharpFluid
+              }
+            }
+          }
+        }
+      }
+    }
   }
 `;

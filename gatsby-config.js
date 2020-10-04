@@ -35,7 +35,14 @@ module.exports = {
     {
       resolve: "gatsby-source-instagram",
       options: {
-        username: "dadbodfitnessonline",
+        username: "24083607341",
+      },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_API_KEY,
       },
     },
   ],
