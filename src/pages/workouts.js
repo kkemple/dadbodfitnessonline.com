@@ -68,35 +68,35 @@ const WorkoutsForDay = ({ workouts }) => (
     `}
   >
     {workouts.map((workout) => (
-      <Box
-        key={workout.id}
-        borderWidth="1px"
-        borderColor="#000000"
-        boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
-        p="24px"
-        flex="1"
-      >
-        <Heading as="h4" size="lg" fontWeight="bold">
-          {workout.category}
-        </Heading>
-        <Box>{documentToReactComponents(workout.description.json)}</Box>
-        {!!workout.movements && (
-          <Box>
-            <hr
-              css={css`
-                margin-bottom: 8px;
-              `}
-            />
-            <h4>Movements</h4>
-            <ul>
-              {workout.movements.map((movement) => (
-                <li>
-                  <a href={movement.link}>{movement.name}</a>
-                </li>
-              ))}
-            </ul>
-          </Box>
-        )}
+      <Box key={workout.id} flex="1">
+        <Box
+          borderWidth="1px"
+          borderColor="#000000"
+          boxShadow="-1px 1px 0 0 black, -2px 2px 0 0 black, -3px 3px 0 0 black, -4px 4px 0 0 black, -5px 5px 0 0 black, -6px 6px 0 0 black"
+          p="24px"
+        >
+          <Heading as="h4" size="lg" fontWeight="bold">
+            {workout.category}
+          </Heading>
+          <Box>{documentToReactComponents(workout.description.json)}</Box>
+          {!!workout.movements && (
+            <Box>
+              <hr
+                css={css`
+                  margin-bottom: 8px;
+                `}
+              />
+              <h4>Movements</h4>
+              <ul>
+                {workout.movements.map((movement) => (
+                  <li>
+                    <a href={movement.link}>{movement.name}</a>
+                  </li>
+                ))}
+              </ul>
+            </Box>
+          )}
+        </Box>
       </Box>
     ))}
   </SimpleGrid>
